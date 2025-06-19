@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -19,7 +18,8 @@ const Payment = () => {
     GBP: { symbol: "£", rate: 0.73, name: "British Pound" },
     INR: { symbol: "₹", rate: 83, name: "Indian Rupee" },
     AUD: { symbol: "A$", rate: 1.35, name: "Australian Dollar" },
-    CAD: { symbol: "C$", rate: 1.25, name: "Canadian Dollar" }
+    CAD: { symbol: "C$", rate: 1.25, name: "Canadian Dollar" },
+    AED: { symbol: "د.إ", rate: 3.67, name: "Arab Dinar" }
   };
 
   const plans = [

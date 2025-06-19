@@ -17,7 +17,7 @@ const ServicesOverview = () => {
     {
       name: "IGCSE",
       description: "International General Certificate of Secondary Education",
-      classes: "Class 9 - 12",
+      classes: "Class 1 - 12",
       subjects: ["Mathematics", "Physics", "Chemistry", "Biology", "English"],
       color: "bg-purple-100 text-purple-800"
     },
