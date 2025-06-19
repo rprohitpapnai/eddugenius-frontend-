@@ -4,6 +4,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { BookOpen, Users, Calendar, ArrowUp } from "lucide-react";
 import { Link } from "react-router-dom";
+import SplineScene from "./SplineScene";
 
 const ServicesOverview = () => {
   const curricula = [
@@ -12,27 +13,38 @@ const ServicesOverview = () => {
       description: "Central Board of Secondary Education - India's most popular curriculum",
       classes: "Class 1 - 12",
       subjects: ["Mathematics", "Science", "English", "Social Studies", "Hindi"],
-      color: "bg-blue-100 text-blue-800"
+      color: "bg-blue-100 text-blue-800",
+      splineScene: "https://prod.spline.design/uvmM02QqjyQWjT5v/scene.splinecode"
     },
     {
       name: "IGCSE",
       description: "International General Certificate of Secondary Education",
       classes: "Class 1 - 12",
       subjects: ["Mathematics", "Physics", "Chemistry", "Biology", "English"],
-      color: "bg-purple-100 text-purple-800"
+      color: "bg-purple-100 text-purple-800",
+      splineScene: "https://prod.spline.design/V4WJLdwdDjJ-lJAA/scene.splinecode"
     },
     {
       name: "Cambridge",
       description: "Cambridge International Curriculum",
       classes: "Class 1 - 12",
       subjects: ["Mathematics", "Sciences", "Languages", "Humanities", "Arts"],
-      color: "bg-green-100 text-green-800"
+      color: "bg-green-100 text-green-800",
+      splineScene: "https://prod.spline.design/clX4Qqm4cjNTmy3L/scene.splinecode"
     }
   ];
 
   return (
-    <section className="py-20 bg-white" id="services">
-      <div className="container mx-auto px-6">
+    <section className="py-20 bg-white relative overflow-hidden" id="services">
+      {/* Floating background elements */}
+      <div className="absolute top-10 right-10 w-32 h-32 opacity-20 z-0">
+        <SplineScene scene="https://prod.spline.design/uvmM02QqjyQWjT5v/scene.splinecode" />
+      </div>
+      <div className="absolute bottom-10 left-10 w-32 h-32 opacity-20 z-0">
+        <SplineScene scene="https://prod.spline.design/V4WJLdwdDjJ-lJAA/scene.splinecode" />
+      </div>
+
+      <div className="container mx-auto px-6 relative z-10">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gray-900">
             Our Educational Services
@@ -45,8 +57,13 @@ const ServicesOverview = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
           {curricula.map((curriculum, index) => (
-            <Card key={index} className="hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
-              <CardHeader>
+            <Card key={index} className="hover:shadow-xl transition-all duration-500 transform hover:-translate-y-3 hover:scale-105 relative overflow-hidden group">
+              {/* 3D background for each card */}
+              <div className="absolute inset-0 opacity-10 group-hover:opacity-20 transition-opacity duration-300">
+                <SplineScene scene={curriculum.splineScene} />
+              </div>
+              
+              <CardHeader className="relative z-10">
                 <div className="flex items-center justify-between mb-4">
                   <Badge className={curriculum.color}>
                     {curriculum.name}
@@ -58,7 +75,7 @@ const ServicesOverview = () => {
                   {curriculum.description}
                 </CardDescription>
               </CardHeader>
-              <CardContent>
+              <CardContent className="relative z-10">
                 <div className="space-y-4">
                   <div>
                     <p className="font-semibold text-gray-700 mb-2">Classes Covered:</p>
@@ -82,7 +99,7 @@ const ServicesOverview = () => {
 
         <div className="text-center">
           <Link to="/services">
-            <Button size="lg" className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-8 py-4">
+            <Button size="lg" className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-8 py-4 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
               View Detailed Services
               <ArrowUp className="ml-2 h-5 w-5 rotate-45" />
             </Button>

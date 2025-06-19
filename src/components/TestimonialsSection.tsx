@@ -2,6 +2,7 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
+import SplineScene from "./SplineScene";
 
 const TestimonialsSection = () => {
   const testimonials = [
@@ -32,8 +33,16 @@ const TestimonialsSection = () => {
   ];
 
   return (
-    <section className="py-20 bg-gray-50">
-      <div className="container mx-auto px-6">
+    <section className="py-20 bg-gray-50 relative overflow-hidden">
+      {/* Floating 3D elements */}
+      <div className="absolute top-0 left-1/4 w-40 h-40 opacity-15 z-0">
+        <SplineScene scene="https://prod.spline.design/clX4Qqm4cjNTmy3L/scene.splinecode" />
+      </div>
+      <div className="absolute bottom-0 right-1/4 w-40 h-40 opacity-15 z-0">
+        <SplineScene scene="https://prod.spline.design/6Wq1Q7YGyM-iab9i/scene.splinecode" />
+      </div>
+
+      <div className="container mx-auto px-6 relative z-10">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gray-900">
             What Our Students Say
@@ -45,19 +54,21 @@ const TestimonialsSection = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {testimonials.map((testimonial, index) => (
-            <Card key={index} className="bg-white hover:shadow-lg transition-shadow duration-300">
+            <Card key={index} className="bg-white/80 backdrop-blur-sm hover:shadow-lg transition-all duration-500 transform hover:-translate-y-2 hover:bg-white/90">
               <CardContent className="p-6">
                 <div className="flex items-center mb-4">
-                  <Avatar className="h-12 w-12 mr-4">
+                  <Avatar className="h-12 w-12 mr-4 ring-2 ring-blue-100">
                     <AvatarImage src={testimonial.avatar} alt={testimonial.name} />
-                    <AvatarFallback>{testimonial.name.split(' ').map(n => n[0]).join('')}</AvatarFallback>
+                    <AvatarFallback className="bg-gradient-to-br from-blue-500 to-purple-500 text-white">
+                      {testimonial.name.split(' ').map(n => n[0]).join('')}
+                    </AvatarFallback>
                   </Avatar>
                   <div>
                     <h4 className="font-semibold text-gray-900">{testimonial.name}</h4>
                     <p className="text-gray-600 text-sm">{testimonial.grade}</p>
                   </div>
                 </div>
-                <Badge className="mb-4" variant="secondary">
+                <Badge className="mb-4 bg-gradient-to-r from-blue-500 to-purple-500 text-white" variant="secondary">
                   {testimonial.curriculum}
                 </Badge>
                 <p className="text-gray-700 italic">"{testimonial.content}"</p>
