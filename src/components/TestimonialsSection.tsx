@@ -2,7 +2,6 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
-import SplineScene from "./SplineScene";
 
 const TestimonialsSection = () => {
   const testimonials = [
@@ -34,12 +33,12 @@ const TestimonialsSection = () => {
 
   return (
     <section className="py-20 bg-gray-50 relative overflow-hidden">
-      {/* Floating 3D elements */}
-      <div className="absolute top-0 left-1/4 w-40 h-40 opacity-15 z-0">
-        <SplineScene scene="https://prod.spline.design/clX4Qqm4cjNTmy3L/scene.splinecode" />
+      {/* Decorative floating elements without Spline */}
+      <div className="absolute top-10 left-1/4 w-40 h-40 opacity-10 z-0">
+        <div className="w-full h-full bg-gradient-to-br from-blue-400 to-purple-400 rounded-full animate-pulse"></div>
       </div>
-      <div className="absolute bottom-0 right-1/4 w-40 h-40 opacity-15 z-0">
-        <SplineScene scene="https://prod.spline.design/6Wq1Q7YGyM-iab9i/scene.splinecode" />
+      <div className="absolute bottom-10 right-1/4 w-32 h-32 opacity-10 z-0">
+        <div className="w-full h-full bg-gradient-to-br from-green-400 to-blue-400 rounded-full animate-pulse delay-500"></div>
       </div>
 
       <div className="container mx-auto px-6 relative z-10">

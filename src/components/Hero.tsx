@@ -9,10 +9,16 @@ const Hero = () => {
   return (
     <section className="pt-32 pb-20 text-center relative overflow-hidden">
       {/* 3D Background */}
-      <div className="absolute inset-0 z-0 opacity-30">
+      <div className="absolute inset-0 z-0 opacity-20">
         <SplineScene 
           scene="https://prod.spline.design/6Wq1Q7YGyM-iab9i/scene.splinecode"
           className="w-full h-full"
+          fallback={
+            <div className="w-full h-full bg-gradient-to-br from-blue-100/50 to-purple-100/50">
+              <div className="absolute top-1/4 left-1/4 w-32 h-32 bg-blue-300/30 rounded-full animate-pulse"></div>
+              <div className="absolute bottom-1/3 right-1/3 w-24 h-24 bg-purple-300/30 rounded-full animate-pulse delay-300"></div>
+            </div>
+          }
         />
       </div>
       

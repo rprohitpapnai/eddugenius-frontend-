@@ -4,7 +4,6 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { BookOpen, Users, Calendar, ArrowUp } from "lucide-react";
 import { Link } from "react-router-dom";
-import SplineScene from "./SplineScene";
 
 const ServicesOverview = () => {
   const curricula = [
@@ -14,7 +13,7 @@ const ServicesOverview = () => {
       classes: "Class 1 - 12",
       subjects: ["Mathematics", "Science", "English", "Social Studies", "Hindi"],
       color: "bg-blue-100 text-blue-800",
-      splineScene: "https://prod.spline.design/uvmM02QqjyQWjT5v/scene.splinecode"
+      gradient: "from-blue-400/20 to-blue-600/20"
     },
     {
       name: "IGCSE",
@@ -22,7 +21,7 @@ const ServicesOverview = () => {
       classes: "Class 1 - 12",
       subjects: ["Mathematics", "Physics", "Chemistry", "Biology", "English"],
       color: "bg-purple-100 text-purple-800",
-      splineScene: "https://prod.spline.design/V4WJLdwdDjJ-lJAA/scene.splinecode"
+      gradient: "from-purple-400/20 to-purple-600/20"
     },
     {
       name: "Cambridge",
@@ -30,20 +29,12 @@ const ServicesOverview = () => {
       classes: "Class 1 - 12",
       subjects: ["Mathematics", "Sciences", "Languages", "Humanities", "Arts"],
       color: "bg-green-100 text-green-800",
-      splineScene: "https://prod.spline.design/clX4Qqm4cjNTmy3L/scene.splinecode"
+      gradient: "from-green-400/20 to-green-600/20"
     }
   ];
 
   return (
     <section className="py-20 bg-white relative overflow-hidden" id="services">
-      {/* Floating background elements */}
-      <div className="absolute top-10 right-10 w-32 h-32 opacity-20 z-0">
-        <SplineScene scene="https://prod.spline.design/uvmM02QqjyQWjT5v/scene.splinecode" />
-      </div>
-      <div className="absolute bottom-10 left-10 w-32 h-32 opacity-20 z-0">
-        <SplineScene scene="https://prod.spline.design/V4WJLdwdDjJ-lJAA/scene.splinecode" />
-      </div>
-
       <div className="container mx-auto px-6 relative z-10">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gray-900">
@@ -58,10 +49,8 @@ const ServicesOverview = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
           {curricula.map((curriculum, index) => (
             <Card key={index} className="hover:shadow-xl transition-all duration-500 transform hover:-translate-y-3 hover:scale-105 relative overflow-hidden group">
-              {/* 3D background for each card */}
-              <div className="absolute inset-0 opacity-10 group-hover:opacity-20 transition-opacity duration-300">
-                <SplineScene scene={curriculum.splineScene} />
-              </div>
+              {/* Gradient background for each card */}
+              <div className={`absolute inset-0 bg-gradient-to-br ${curriculum.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-300`}></div>
               
               <CardHeader className="relative z-10">
                 <div className="flex items-center justify-between mb-4">
