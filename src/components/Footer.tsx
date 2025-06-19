@@ -10,14 +10,14 @@ const Footer = () => {
           <div className="col-span-1 md:col-span-2">
             <div className="flex items-center space-x-2 mb-4">
               <BookOpen className="h-8 w-8 text-blue-400" />
-              <span className="text-2xl font-bold">EduExcel</span>
+              <span className="text-2xl font-bold">EduGenius</span>
             </div>
             <p className="text-gray-400 mb-6 max-w-md">
               Empowering students worldwide with quality education across CBSE, IGCSE, and Cambridge curricula. 
               Your success is our mission.
             </p>
             <div className="text-gray-400">
-              <p>Email: info@eduexcel.com</p>
+              <p>Email: info@edugenius.com</p>
               <p>Phone: +1 (555) 123-4567</p>
             </div>
           </div>
@@ -43,7 +43,7 @@ const Footer = () => {
         </div>
         
         <div className="border-t border-gray-800 mt-12 pt-8 text-center text-gray-400">
-          <p>&copy; 2024 EduExcel. All rights reserved.</p>
+          <p>&copy; 2024 EduGenius. All rights reserved.</p>
         </div>
       </div>
     </footer>
